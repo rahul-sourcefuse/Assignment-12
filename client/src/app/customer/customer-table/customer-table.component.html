@@ -1,0 +1,27 @@
+<table class="table mt-3">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Website</th>
+        <th scope="col">Address</th>
+        <th scope="col">CreatedAt</th>
+        <th scope="col">Actions</th>
+        <th scope="col">Associated Users</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of customerData">
+        <!-- <td>{{customerData|json}}</td> -->
+    <td>{{row.name}} </td>
+        <td>{{row.website}}</td>
+        <td>{{row.address}}</td>
+        <td>{{row.createdAt | dateformat}}</td>
+        <td>
+          <button class="btn btn-info" (click)="onEdit(row)" type="button" data-bs-toggle="modal"
+            data-bs-target="#exampleModalCustomer">Edit</button>
+          <button (click)="deleteCustomer(row)" class="btn btn-danger mx-3">Delete</button>
+        </td>
+        <td><a routerLinkActive="active" [routerLink]="['/customers/',row.id]" >Show Users</a></td>
+      </tr>
+    </tbody>
+  </table>

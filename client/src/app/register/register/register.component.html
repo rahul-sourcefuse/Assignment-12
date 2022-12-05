@@ -1,0 +1,199 @@
+<div class="container-lg">
+  <br />
+  <h1>Sign Up</h1>
+  <br />
+  <form [formGroup]="addUserForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="firstName">First Name</label>
+      <input
+        type="text"
+        class="form-control"
+        name="firstname"
+        id="firstname"
+        formControlName="firstName"
+      />
+      <div
+        class="alert alert-danger"
+        *ngIf="
+          !addUserForm.get('firstName')?.valid &&
+          addUserForm.get('firstName')?.touched
+        "
+      >
+        min 3 characters required!
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="middleName">Middle Name</label>
+      <input
+        class="form-control"
+        name="middlename"
+        id="middlename"
+        formControlName="middleName"
+      />
+    </div>
+    <div class="form-group">
+      <label for="lastName">Last Name</label>
+      <input
+        type="text"
+        class="form-control"
+        name="lastname"
+        id="lastname"
+        formControlName="lastName"
+      />
+      <div
+        class="alert alert-danger"
+        *ngIf="
+          !addUserForm.get('lastName')?.valid &&
+          addUserForm.get('lastName')?.touched
+        "
+      >
+        min 3 characters required!
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input
+        type="email"
+        class="form-control"
+        name="email"
+        id="email"
+        formControlName="email"
+      />
+      <div
+        class="alert alert-danger"
+        *ngIf="
+          !addUserForm.get('email')?.valid && addUserForm.get('email')?.touched
+        "
+      >
+        Please Enter Valid Email
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input
+        type="text"
+        class="form-control"
+        name="username"
+        id="username"
+        formControlName="username"
+      />
+      <div
+        class="alert alert-danger"
+        *ngIf="
+          !addUserForm.get('username')?.valid &&
+          addUserForm.get('username')?.touched
+        "
+      >
+        Please Enter Valid Email
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input
+        type="text"
+        class="form-control"
+        name="password"
+        id="password"
+        formControlName="password"
+      />
+      <div
+        class="alert alert-danger"
+        *ngIf="
+          !addUserForm.get('password')?.valid &&
+          addUserForm.get('password')?.touched
+        "
+      >
+        min 8 characters Required!
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="phoneNumber">Phone Number</label>
+      <input
+        type="number"
+        class="form-control"
+        name="phonenumber"
+        id="phonenumber"
+        formControlName="phoneNumber"
+      />
+      <div
+        class="alert alert-danger"
+        *ngIf="
+          !addUserForm.get('phoneNumber')?.valid &&
+          addUserForm.get('phoneNumber')?.touched
+        "
+      >
+        This field is Required!
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="role">Role</label>
+      <select
+        class="form-control"
+        name="role"
+        id="role"
+        formControlName="roleId"
+      >
+        <option *ngFor="let r of role" [value]="r.id">{{ r.name }}</option>
+      </select>
+      <div
+        class="alert alert-danger"
+        *ngIf="
+          !addUserForm.get('roleId')?.valid &&
+          addUserForm.get('roleId')?.touched
+        "
+      >
+        This field is Required!
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="address">Address</label>
+      <input
+        type="text"
+        class="form-control"
+        name="address"
+        id="address"
+        formControlName="address"
+      />
+      <div
+        class="alert alert-danger"
+        *ngIf="
+          !addUserForm.get('address')?.valid &&
+          addUserForm.get('address')?.touched
+        "
+      >
+        This field is Required!
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="customerId">Customer Id</label>
+      <select
+        class="form-control"
+        name="customerid"
+        id="customerid"
+        formControlName="customerId"
+      >
+        <option [value]="customer.id" *ngFor="let customer of customers">
+          {{ customer.name }}
+        </option>
+      </select>
+      <div
+        class="alert alert-danger"
+        *ngIf="
+          !addUserForm.get('customerId')?.valid &&
+          addUserForm.get('customerId')?.touched
+        "
+      >
+        This field is Required!
+      </div>
+    </div>
+    <br />
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="!addUserForm.valid"
+    >
+      Submit
+    </button>
+  </form>
+</div>

@@ -1,0 +1,57 @@
+<div *ngIf="checkLogin()" style="display: inline">
+  <ul
+    style="
+      text-align: center;
+      font-weight: bold;
+      display: flex;
+      flex-direction: row;
+      font-size: 20px;
+      align-items: center;
+      justify-content: center;
+      gap: 100px;
+      margin-top: 20px;
+      border: 10px;
+    "
+  >
+    <!-- <li style="text-decoration: none;display: inline;">
+            <a style="text-decoration: none;" routerLink="/" routerLinkActive="active">Login</a>
+        </li>
+        <li style="text-decoration: none;display: inline;">
+            <a style="text-decoration: none;" routerLink="/register" routerLinkActive="active">Register</a>
+        </li> -->
+    <li style="text-decoration: none; display: inline">
+      <a
+        style="text-decoration: none"
+        routerLink="/users"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        >User</a
+      >
+    </li>
+    <li style="text-decoration: none; display: inline">
+      <a
+        style="text-decoration: none"
+        routerLink="/customers"
+        routerLinkActive="active"
+        >Customer</a
+      >
+    </li>
+    <li style="text-decoration: none; display: inline">
+      <a
+        style="text-decoration: none"
+        routerLink=""
+        (click)="logout()"
+        [routerLinkActiveOptions]="{ exact: true }"
+        routerLinkActive="active"
+        >Log out</a
+      >
+    </li>
+  </ul>
+</div>
+
+<div>
+  <router-outlet></router-outlet>
+</div>
+
+<!-- <app-emp-dashboard></app-emp-dashboard>
+<app-customer></app-customer> -->
